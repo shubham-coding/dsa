@@ -1,0 +1,35 @@
+package demo;
+
+public class BinarySearch {
+	
+	public static void main(String[] args) {
+		int arr[] = {1,2,3,4,5,10,20,40};
+		int x=1;
+		
+		System.out.println(search(arr, x, 0, arr.length-1));
+	}
+	
+	public static int search(int arr[],int x,int low, int high) {
+		if(low<high && high>=1) {
+			
+				
+			int mid = (low+(high-1))/2;
+		
+			if(arr[mid]==x)
+				return mid;
+			
+			if(arr[mid]>x)
+				return search(arr, x, low, mid-1);
+			
+			
+			if(arr[mid]<x)
+				return search(arr, x, mid+1, high);
+		}else if(low==high && arr[low]==x)
+			return low;
+		
+		return -1;
+	}
+	
+	
+
+}
